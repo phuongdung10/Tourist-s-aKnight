@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import { BoardProvider } from "./BoardContext"
+import Board from "./components/Board";
+import Animation from "./components/Animation";
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BoardProvider>
+			<div className="App">
+        <Board />
+        <Animation />
+			</div>
+		</BoardProvider>
+	)
 }
 
-export default App;
+export default App
