@@ -38,8 +38,4 @@ const SingleCell = styled.button`
 	&:hover {
 		box-shadow: 10px 10px 10px white;
 	}
-
-	&.active:hover{
-		box-shadow: 0 0 10px black;
-	}
 `
