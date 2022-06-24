@@ -24,11 +24,11 @@ export function Calculate(startX, startY, boardSize) {
 				board[cellX][cellY].visited = true
 			}
 
-			// if (rewind) {
-			// 	validMoves.push(validMoves.shift())
-			// } else {
-			// 	validMoves = getValidCellsFromBoard()
-			// }
+			if (rewind) {
+				validMoves.push(validMoves.shift())
+			} else {
+				validMoves = getValidCellsFromBoard()
+			}
 
 			if (getNextValidMoves && validMoves.length > 0) {
 				for (const move of validMoves) {
