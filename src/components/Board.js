@@ -15,6 +15,7 @@ function Board() {
 		console.log("rowww>?>>>", row)
 		for (let y = 0; y < boardSize; y++) {
 			const letter = "ABCDEFGH"[boardSize - y - 1]
+			// to have could use a string structe
 			row.push(
 				<Cell
 					name={`${letter}${x + 1}`}
@@ -22,6 +23,7 @@ function Board() {
 						x, y,
 					
 					}}
+
 					key={uuidv4()}
 				/>
 			)
