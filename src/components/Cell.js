@@ -9,12 +9,12 @@ export default function Cell({ name, x, y }) {
 		setBoard,
 	} = useContext(BoardContext)
 	function disableAllButtonsAndCalculate() {
-		//description each properties,  Obj'size and position 
+		//description each properties, Obj'size and position 
 		document.querySelectorAll("svg").forEach(svg => `${svg.remove()}`)
 		document.querySelectorAll(".board-button")
 			.forEach(btn => { btn.removeAttribute("style") })
 		const { history } = Calculate(x, y, boardSize)
-		console.log(Calculate(x,y, boardSize))
+
 		setBoard(history)
 	}
 	return (
