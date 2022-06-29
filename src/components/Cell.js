@@ -17,7 +17,8 @@ export default function Cell({ name, x, y }) {
 	}
 	return (
 		<SingleCell
-			className="board-button"
+		//creating a chessBoard for parallel color
+			className={`board-button ${y % 2 === 0 ? 'add' : 'odd'}${x} `}
 			onClick={disableAllButtonsAndCalculate}
 		>
 			{name}
