@@ -6,9 +6,7 @@ import { useContext, useEffect, useRef, useState } from "react"
 function pause(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
-
 export default function Animation() {
-	
 	//to receive data from premier component  
 	const { animationSpeed, board } = useContext(BoardContext)
 
@@ -17,7 +15,6 @@ export default function Animation() {
 		if (board.length >= 4) {
 			const buttons = [...document.querySelectorAll("button")]
 			document.querySelectorAll("svg").forEach(svg => svg.remove())
-
 			async function colorizeButtons() {
 				for (const [index, move] of board.entries()) {
 					const button = buttons.find(function getCurrentButton(b) {
@@ -42,24 +39,7 @@ export default function Animation() {
 						if (previousButton === undefined) {
 							return
 						}
-						//List of Number a way called is the order
-						previousButton.innerHTML = index
-						const previousClientRect = previousButton.getBoundingClientRect()
-						const previous = {
-							left: previousClientRect.left,
-							width: previousClientRect.width,
-							top: previousClientRect.top,
-							height: previousClientRect.height,
-						}
-						//
-						const previousX = (previous.left + width) / 2
-						const previousY = Math.floor(Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
-						
-
-						console.log("X,Y' coordinary has got previous", previousX, previousY)
-						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
-
 					const hue = Math.floor(index * (10 / board.length))
 					console.log(hue)
 					button.classList.add("active")
