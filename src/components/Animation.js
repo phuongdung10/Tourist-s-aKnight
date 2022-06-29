@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef } from "react"
 function pause(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
+
 export default function Animation() {
 	const { animationSpeed, board } = useContext(BoardContext)
 	useEffect(function animateSolution() {
@@ -26,6 +27,7 @@ export default function Animation() {
 					const { left, width, top, height } = button.getBoundingClientRect()
 					if (index > 0) { // Draw SVG line from previous position to current position
 						const x = left + width / 2
+						console.log(x);
 						const y = Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
@@ -41,7 +43,6 @@ export default function Animation() {
 							height: previousClientRect.height,
 						}
 						const previousX = previous.left + width / 2
-						// console.log("previous>>>>>>", previousX)
 						const previousY = Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
