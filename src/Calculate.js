@@ -46,6 +46,7 @@ export function Calculate(startX, startY, boardSize) {
 		}
 
 		function getValidCellsFromBoard() {
+	
 			return board.flat().filter(otherCell => {
 				const xDistance = Math.abs(otherCell.x - cellX) * -1
 				const yDistance = Math.abs(otherCell.y - cellY) * -1
