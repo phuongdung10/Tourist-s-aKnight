@@ -36,7 +36,7 @@ export default function Animation() {
 
 						// using PITAGO'principle for a rectangle'largest length
 						const x = left + width / 2
-						const y = Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
+						const y = Math.floor(Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
 						console.log("x,y>>>>>>>>>.", x,y)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
