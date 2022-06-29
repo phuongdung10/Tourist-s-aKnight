@@ -32,11 +32,12 @@ export default function Animation() {
 					//getting obj'  position and size 
 					const { left, width, top, height } = button.getBoundingClientRect()
 
-					if (index > 0) { // Draw SVG line from previous position to current position
+					if (index > 0) { 
+
+						// using PITAGO'principle for a rectangle'largest length
 						const x = left + width / 2
-
-
 						const y = Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
+						console.log("x,y>>>>>>>>>.", x,y)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
 							return
@@ -58,10 +59,9 @@ export default function Animation() {
 						console.log("X,Y' coordinary has got previous", previousX, previousY)
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
+
 					const hue = Math.floor(index * (10 / board.length))
-
-
-
+					console.log(hue)
 					button.classList.add("active")
 					if (index > 0 && index < board.length - 1) {
 						button.style.backgroundColor = `hsl(${hue}, 50%, 80%)`
