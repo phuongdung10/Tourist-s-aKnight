@@ -25,6 +25,7 @@ function Board() {
 			)
 		}
 		board.push(row)
+		console.log(row);
 	}
 	return (
 		<BoardContainer className="board" {...{ boardSize, variants }}>
