@@ -15,10 +15,10 @@ export default function Animation() {
 					const button = buttons.find(function getCurrentButton(b) {
 						return b.innerHTML === move.name
 					})
-
 					if (button === undefined) {
 						return
 					}
+
 					// Initialize svg
 					const ns = "http://www.w3.org/2000/svg"
 					const svg = document.createElementNS(ns, 'svg')
@@ -41,6 +41,7 @@ export default function Animation() {
 							height: previousClientRect.height,
 						}
 						const previousX = previous.left + width / 2
+						// console.log("previous>>>>>>", previousX)
 						const previousY = Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
