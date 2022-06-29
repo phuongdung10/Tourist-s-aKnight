@@ -1,5 +1,6 @@
 import { BoardContext } from "../BoardContext"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
+
 
 //setting time for to the knight can run to each elements in boarchess
 function pause(ms) {
@@ -7,6 +8,7 @@ function pause(ms) {
 }
 
 export default function Animation() {
+	const [X, setX] = useState(0)
 	//to receive data from premier component  
 	const { animationSpeed, board } = useContext(BoardContext)
 
@@ -24,17 +26,15 @@ export default function Animation() {
 					if (button === undefined) {
 						return
 					}
-
 					// Initialize svg
 					const ns = "http://www.w3.org/2000/svg"
 					const svg = document.createElementNS(ns, 'svg')
 					let pathString = ""
 					//getting obj'  position and size 
 					const { left, width, top, height } = button.getBoundingClientRect()
-
 					if (index > 0) { 
-
 						// using PITAGO'principle for a rectangle'largest length
+						//the present position of 
 						const x = left + width / 2
 						const y = Math.floor(Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
 						console.log("x,y>>>>>>>>>.", x,y)
@@ -51,10 +51,10 @@ export default function Animation() {
 							top: previousClientRect.top,
 							height: previousClientRect.height,
 						}
+						// 
 						const previousX = (previous.left + width) / 2
 						const previousY = Math.floor(Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
-
-						// using PITAGO'principle for a rectangle'largest length
+						
 
 						console.log("X,Y' coordinary has got previous", previousX, previousY)
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
