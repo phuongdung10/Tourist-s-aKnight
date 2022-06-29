@@ -12,19 +12,22 @@ function Board() {
 	const board = []
 	for (let x = 0; x < boardSize; x++) {
 		const row = []
+		console.log("rowww>?>>>", row)
 		for (let y = 0; y < boardSize; y++) {
-			const letter = "ABCDEFGHIJKLMNOPQRSTU"[boardSize - y - 1]
+			const letter = "ABCDEFGH"[boardSize - y - 1]
 			row.push(
 				<Cell
 					name={`${letter}${x + 1}`}
 					{...{
 						x, y,
+					
 					}}
 					key={uuidv4()}
 				/>
 			)
 		}
 		board.push(row)
+
 	}
 	return (
 		<BoardContainer className="board" {...{ boardSize, variants }}>
