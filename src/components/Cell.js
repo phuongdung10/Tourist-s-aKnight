@@ -9,10 +9,12 @@ export default function Cell({ name, x, y }) {
 		setBoard,
 	} = useContext(BoardContext)
 	function disableAllButtonsAndCalculate() {
+		//description each properties,  Obj'size and position 
 		document.querySelectorAll("svg").forEach(svg => `${svg.remove()}`)
 		document.querySelectorAll(".board-button")
 			.forEach(btn => { btn.removeAttribute("style") })
 		const { history } = Calculate(x, y, boardSize)
+		console.log(Calculate(x,y, boardSize))
 		setBoard(history)
 	}
 	return (
@@ -38,6 +40,6 @@ const SingleCell = styled.button`
 	transition: ease .1s all;
 	
 	&:hover {
-		box-shadow: 10px 10px 10px white;
+		box-shadow: 10px 10px 10px 10px white;
 	}
 `
