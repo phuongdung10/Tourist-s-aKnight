@@ -12,7 +12,6 @@ export function Calculate(startX, startY, boardSize) {
 		const rowName = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[boardSize - cellY - 1]
 		const colName = cellX + 1
 		const name = `${rowName}${colName}`
-
 		function getValidMoves(getNextValidMoves = true, rewind = false) {
 			if (getNextValidMoves) {
 				if (history.length > 0) {
@@ -24,7 +23,6 @@ export function Calculate(startX, startY, boardSize) {
 				board[cellX][cellY].visited = true
 				console.log("cellX, cellY>>>>>>>>",board[cellX][cellY].visited);
 			}
-
 			if (rewind) {
 				validMoves.push(validMoves.shift())
 			} else {
@@ -38,10 +36,10 @@ export function Calculate(startX, startY, boardSize) {
 				validMoves.sort((a, b) => a.validMoves.length - b.validMoves.length)
 				const next = validMoves[0]
 				board[next.x][next.y].getValidMoves()
+				//////to limit of the knight'board
 			} else if (getNextValidMoves && validMoves.length === 0 && history.length < numberOfCells) {
 				goBackInHistory()
 			}
-
 			return validMoves
 		}
 
@@ -68,7 +66,6 @@ export function Calculate(startX, startY, boardSize) {
 				}
 			}
 		}
-
 		return {
 			name,
 			x: cellX,
