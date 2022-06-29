@@ -15,7 +15,7 @@ function Board() {
 		console.log("rowww>?>>>", row)
 		for (let y = 0; y < boardSize; y++) {
 			const letter = "ABCDEFGH"[boardSize - y - 1]
-			// to have could use a string structe
+			// to have could use a string structe each compatibility items with each other.
 			row.push(
 				<Cell
 					name={`${letter}${x + 1}`}
