@@ -5,7 +5,8 @@ export const BoardProvider = props => {
 	const [boardSize, setBoardSize] = useState(8)
 	const [history, setHistory] = useState([])
 	const [modalIsOpen, setModalIsOpen] = useState(false)
-	const animationSpeed = useRef(500)
+	const animationSpeed = useRef(1000)
+	// setting the time for speech of knight
 	const boardRef = useRef()
 	const sliderRef = useRef()
 	const variants = {
