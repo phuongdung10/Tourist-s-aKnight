@@ -9,8 +9,8 @@ function App() {
 	return (
 		<BoardProvider>
 			<div className="App">
-        <Board />
-        <Animation />
+				<Board />
+				<Animation />
 			</div>
 		</BoardProvider>
 	)
