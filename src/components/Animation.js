@@ -2,11 +2,12 @@ import { BoardContext } from "../BoardContext"
 import { useContext, useEffect, useRef, useState } from "react"
 
 
-//setting time for to the knight can run to each elements in boarchess
+//setting time for to the knight can run to each elements in boardchess
 function pause(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
 export default function Animation() {
+
 	//to receive data from premier component  
 	const { animationSpeed, board } = useContext(BoardContext)
 
@@ -40,6 +41,10 @@ export default function Animation() {
 							return
 						}
 					}
+
+
+					//set colour where the knight had acrossed on the chessboard sturation, lightness
+					
 					const hue = Math.floor(index * (10 / board.length))
 					console.log(hue)
 					button.classList.add("active")
@@ -57,6 +62,5 @@ export default function Animation() {
 			//switched to run
 		}
 	}, [board, animationSpeed])
-	//
 	return null
 }
