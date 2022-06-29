@@ -2,6 +2,7 @@ import { BoardContext } from "../BoardContext"
 import { Calculate } from "../Calculate"
 import { useContext } from "react"
 import styled from "styled-components"
+// creating each cell of chessBoard
 export default function Cell({ name, x, y }) {
 	const {
 		boardSize,
@@ -13,7 +14,6 @@ export default function Cell({ name, x, y }) {
 			.forEach(btn => { btn.removeAttribute("style") })
 		const { history } = Calculate(x, y, boardSize)
 		setBoard(history)
-		console.log("dfdf", setBoard)
 	}
 	return (
 		<SingleCell
