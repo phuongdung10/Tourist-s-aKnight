@@ -1,11 +1,16 @@
 import { BoardContext } from "../BoardContext"
 import { useContext, useEffect, useRef } from "react"
+
+//setting time for to the knight can run to each elements in boarchess
 function pause(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 export default function Animation() {
+	//to receive data from premier component  
 	const { animationSpeed, board } = useContext(BoardContext)
+
+//new position will be cteated when the change component
 	useEffect(function animateSolution() {
 		if (board.length >= 4) {
 			const buttons = [...document.querySelectorAll("button")]
@@ -24,13 +29,13 @@ export default function Animation() {
 					const ns = "http://www.w3.org/2000/svg"
 					const svg = document.createElementNS(ns, 'svg')
 					let pathString = ""
-					//getting 
+					//getting obj'  position and size 
 					const { left, width, top, height } = button.getBoundingClientRect()
-				
+
 					if (index > 0) { // Draw SVG line from previous position to current position
 						const x = left + width / 2
 
-			
+
 						const y = Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
@@ -45,12 +50,17 @@ export default function Animation() {
 							top: previousClientRect.top,
 							height: previousClientRect.height,
 						}
-						const previousX = previous.left + width / 2
-						const previousY = Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
+						const previousX = (previous.left + width) / 2
+						const previousY = Math.floor(Math.abs(previous.top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
+
+						// using PITAGO'principle for a rectangle'largest length
+
+						console.log("X,Y' coordinary has got previous", previousX, previousY)
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
 					const hue = Math.floor(index * (10 / board.length))
-					
+
+
 
 					button.classList.add("active")
 					if (index > 0 && index < board.length - 1) {
@@ -67,5 +77,6 @@ export default function Animation() {
 			//switched to run
 		}
 	}, [board, animationSpeed])
+	//
 	return null
 }
