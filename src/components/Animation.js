@@ -7,7 +7,7 @@ function pause(ms) {
 export default function Animation() {
 	const { animationSpeed, board } = useContext(BoardContext)
 	useEffect(function animateSolution() {
-		if (board.length >= 25) {
+		if (board.length >= 4) {
 			const buttons = [...document.querySelectorAll("button")]
 			document.querySelectorAll("svg").forEach(svg => svg.remove())
 
@@ -24,10 +24,13 @@ export default function Animation() {
 					const ns = "http://www.w3.org/2000/svg"
 					const svg = document.createElementNS(ns, 'svg')
 					let pathString = ""
+					//getting 
 					const { left, width, top, height } = button.getBoundingClientRect()
+				
 					if (index > 0) { // Draw SVG line from previous position to current position
 						const x = left + width / 2
-						console.log(x);
+
+			
 						const y = Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
@@ -47,6 +50,7 @@ export default function Animation() {
 						pathString += `M ${x} ${y} L ${previousX} ${previousY}`
 					}
 					const hue = Math.floor(index * (10 / board.length))
+					
 
 					button.classList.add("active")
 					if (index > 0 && index < board.length - 1) {
