@@ -22,6 +22,7 @@ export function Calculate(startX, startY, boardSize) {
 				history.push(board[cellX][cellY])
 				history[history.length - 1].visited = true
 				board[cellX][cellY].visited = true
+				console.log("cellX, cellY>>>>>>>>",board[cellX][cellY].visited);
 			}
 
 			if (rewind) {
