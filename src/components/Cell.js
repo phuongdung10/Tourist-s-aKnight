@@ -13,6 +13,7 @@ export default function Cell({ name, x, y }) {
 			.forEach(btn => { btn.removeAttribute("style") })
 		const { history } = Calculate(x, y, boardSize)
 		setBoard(history)
+		console.log("dfdf", setBoard)
 	}
 	return (
 		<SingleCell
