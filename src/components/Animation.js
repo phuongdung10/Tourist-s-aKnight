@@ -51,6 +51,10 @@ export default function Animation() {
 					if (index > 0 && index < board.length - 1) {
 						button.style.backgroundColor = `hsl(${hue}, 50%, 80%)`
 						button.style.color = "black"
+						button.style.backgroundImage = "url('/assets/knight_b.png')"
+						button.style.backgroundPosition = "center center"
+						button.style.backgroundRepeat="no repeat"
+
 					} else {
 						button.style.backgroundColor = " #ebecd0"
 						button.style.color = "white"
