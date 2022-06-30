@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { useContext, useEffect } from "react"
 import { v4 as uuidv4 } from 'uuid'
 import styled from "styled-components"
+const BASE_URl = `${process.env.PUBLIC_URL}/assets/`;
+let url = `${BASE_URl}knight_b.png`;
 function Board() {
 	const {
 		boardSize,
@@ -21,11 +23,11 @@ function Board() {
 					name={`${letter}${x + 1}`}
 					{...{
 						x, y,
-					
-					}}
 
+					}}
 					key={uuidv4()}
-				/>
+				>
+				</Cell>
 			)
 		}
 		board.push(row)
@@ -46,7 +48,7 @@ function Board() {
 export default Board;
 const BoardContainer = styled(motion.div).attrs(({ variants }) => ({
 	initial: variants.out,
-	animate: variants.in ,
+	animate: variants.in,
 	exit: variants.out,
 }))`
 	background: yellow;
@@ -62,7 +64,7 @@ const BoardContainer = styled(motion.div).attrs(({ variants }) => ({
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-		width: 100px;
+		width: 80px;
 	}
 	button {
 		display: inline-block;
