@@ -3,6 +3,9 @@ import { Calculate } from "../Calculate"
 import { useContext } from "react"
 import styled from "styled-components"
 // creating each cell of chessBoard
+const BASE_URl = `${process.env.PUBLIC_URL}/assets/`;
+let url = `${BASE_URl}knight_b.png`;
+
 export default function Cell({ name, x, y }) {
 	const {
 		boardSize,
@@ -19,10 +22,11 @@ export default function Cell({ name, x, y }) {
 	}
 	return (
 		<SingleCell
-		//creating a chessBoard for parallel color
+			//creating a chessBoard for parallel color
 			className={`board-button ${y % 2 === 0 ? 'add' : 'odd'}${x} `}
 			onClick={disableAllButtonsAndCalculate}
 		>
+
 			{name}
 		</SingleCell>
 	)
