@@ -11,7 +11,7 @@ export default function Animation() {
 	//to receive data from premier component  
 	const { animationSpeed, board } = useContext(BoardContext)
 
-//new position will be cteated when the change component
+	//new position will be cteated when the change component
 	useEffect(function animateSolution() {
 		if (board.length >= 4) {
 			const buttons = [...document.querySelectorAll("button")]
@@ -30,12 +30,12 @@ export default function Animation() {
 					let pathString = ""
 					//getting obj'  position and size 
 					const { left, width, top, height } = button.getBoundingClientRect()
-					if (index > 0) { 
+					if (index > 0) {
 						// using PITAGO'principle for a rectangle'largest length
 						//the present position of knight when have clicked and being set again
 						const x = left + width / 2
 						const y = Math.floor(Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
-						console.log("x,y>>>>>>>>>.", x,y)
+						console.log("x,y>>>>>>>>>.", x, y)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
 							return
@@ -44,20 +44,21 @@ export default function Animation() {
 
 
 					//set colour where the knight had acrossed on the chessboard sturation, lightness
-					
+
 					const hue = Math.floor(index * (10 / board.length))
 					console.log(hue)
 					button.classList.add("active")
 					if (index > 0 && index < board.length - 1) {
 						button.style.backgroundColor = `hsl(${hue}, 50%, 80%)`
 						button.style.color = "black"
-						button.style.backgroundImage = "url('/assets/knight_b.png')"
-						button.style.backgroundPosition = "center center"
-						button.style.backgroundRepeat="no repeat"
 
 					} else {
 						button.style.backgroundColor = " #ebecd0"
 						button.style.color = "white"
+						button.style.backgroundImage = "url('/assets/knight_b.png')"
+						button.style.backgroundPosition = "center center"
+						button.style.backgroundRepeat = "no repeat"
+					
 					}
 					await pause(animationSpeed.current)
 				}
