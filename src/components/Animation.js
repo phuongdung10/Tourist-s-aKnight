@@ -1,5 +1,5 @@
 import { BoardContext } from "../BoardContext"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect } from "react"
 
 
 //setting time for to the knight can run to each elements in boardchess
@@ -30,23 +30,25 @@ export default function Animation() {
 					let pathString = ""
 					//getting obj'  position and size 
 					const { left, width, top, height } = button.getBoundingClientRect()
+					button.classList.add("active")
 					if (index > 0) {
 						// using PITAGO'principle for a rectangle'largest length
 						//the present position of knight when have clicked and being set again
 						const x = left + width / 2
 						const y = Math.floor(Math.abs(top - document.querySelector(".board").getBoundingClientRect().top + height / 2))
-						console.log("x,y>>>>>>>>>.", x, y)
 						const previousButton = buttons.find(b => b.innerHTML === board[index - 1].name)
 						if (previousButton === undefined) {
 							return
+						} else {
+							previousButton.classList.remove("active")
 						}
 					}
 
 
 					//set colour where the knight had acrossed on the chessboard sturation, lightness
-
 					const hue = Math.floor(index * (10 / board.length))
-					console.log(hue)
+
+
 					button.classList.add("active")
 					if (index > 0 && index < board.length - 1) {
 						button.style.backgroundColor = `hsl(${hue}, 50%, 80%)`
@@ -55,10 +57,6 @@ export default function Animation() {
 					} else {
 						button.style.backgroundColor = " #ebecd0"
 						button.style.color = "white"
-						button.style.backgroundImage = "url('/assets/knight_b.png')"
-						button.style.backgroundPosition = "center center"
-						button.style.backgroundRepeat = "no repeat"
-					
 					}
 					await pause(animationSpeed.current)
 				}
