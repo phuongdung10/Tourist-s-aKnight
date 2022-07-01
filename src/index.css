@@ -11,3 +11,10 @@
 .board-button.add7 {
   background-color: #ebecd0;
 }
+
+.board-button.active {
+  background: url('./../public/assets/knight_b.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
