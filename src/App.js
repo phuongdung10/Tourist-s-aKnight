@@ -10,7 +10,6 @@ function App() {
 		<BoardProvider>
 			<div className="App">
 				<Board />
-				
 				<Animation />
 			</div>
 		</BoardProvider>
