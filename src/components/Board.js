@@ -64,7 +64,7 @@ const BoardContainer = styled(motion.div).attrs(({ variants }) => ({
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-		width: 80px;
+		width: 90px;
 	}
 	button {
 		display: inline-block;
